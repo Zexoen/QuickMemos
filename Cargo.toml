@@ -1,0 +1,25 @@
+[package]
+name = "quickmemos"
+version = "0.1.0"
+edition = "2021"
+description = "A native Linux Wayland GUI client for Memos"
+license = "MIT"
+
+[dependencies]
+relm4 = { version = "0.10", features = ["macros"] }
+gtk4 = "0.10"
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+pulldown-cmark = "0.12"
+chrono = "0.4"
+dirs = "6"
+toml = "0.8"
+anyhow = "1"
+
+[dev-dependencies]
+tokio = { version = "1", features = ["rt-multi-thread", "macros"] }
+
+[profile.release]
+lto = true
+strip = true
